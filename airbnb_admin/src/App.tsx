@@ -17,6 +17,7 @@ const App = () => {
         <Route element={<Layout />}>
           <Route index element={<Navigate replace to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="bookings" element={<Bookings />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="*" element={<PageNotFound />} />
