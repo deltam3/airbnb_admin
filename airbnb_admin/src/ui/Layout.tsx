@@ -1,15 +1,22 @@
 import { Outlet } from "react-router-dom";
-import SideBar from "./SideBar";
+import Sidebar from "./Sidebar";
 import Header from "./Header";
+
+import styled from "styled-components";
+
+const AppLayout = styled.div`
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 26rem 1fr;
+  grid-template-rows: auto 1fr;
+`;
 
 function Layout() {
   return (
     <>
       <Header />
       <Sidebar />
-      <Main>
-        <Outlet />
-      </Main>
+      <Outlet />
     </>
   );
 }
