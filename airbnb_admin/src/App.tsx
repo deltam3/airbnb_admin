@@ -8,6 +8,7 @@ import {
 import Layout from "./ui/Layout";
 import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Navigate replace to="dashboard" />} />
-          <Route path="dashbaord" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="*" element={<PageNotFound />} />
