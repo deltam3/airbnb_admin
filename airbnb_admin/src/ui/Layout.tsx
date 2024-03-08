@@ -13,11 +13,11 @@ const AppLayout = styled.div`
 
 function Layout() {
   return (
-    <>
+    <AppLayout>
       <Header />
       <Sidebar />
       <Outlet />
-    </>
+    </AppLayout>
   );
 }
 
