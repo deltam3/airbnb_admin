@@ -10,6 +10,8 @@ import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import Bookings from "./pages/Bookings";
+import Cabins from "./pages/Cabins";
+import Users from "./pages/Users";
 
 const App = () => {
   return (
@@ -20,6 +22,7 @@ const App = () => {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="bookings" element={<Bookings />} />
           <Route path="cabins" element={<Cabins />} />
+          <Route path="users" element={<Users />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="*" element={<PageNotFound />} />
