@@ -12,7 +12,7 @@ const Img = styled.img`
 function Logo() {
   return (
     <StyledLogo>
-      <Img src="/logo.png" alt="Logo" />
+      <Img src="/logo.png" alt="Airbnb Logo" />
     </StyledLogo>
   );
 }
