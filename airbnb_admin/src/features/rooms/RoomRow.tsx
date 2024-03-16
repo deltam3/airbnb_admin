@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { formatCurrency } from "../../utils/helpers.js";
+import { useMutation } from "@tanstack/react-query";
 
 const TableRow = styled.div`
   display: grid;
@@ -42,6 +43,10 @@ const Discount = styled.div`
 
 function RoomRow({ room }) {
   const { name, regularPrice, image, maxCapacity, discount } = room;
+
+  const { isLoading, mutate } = useMutation({
+    mutationFn: (id) => deleteCabin(id),
+  });
 
   return (
     <TableRow role="row">
