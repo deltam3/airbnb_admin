@@ -1,13 +1,13 @@
-import React from "react";
+import styled from "styled-components";
 
-type Props = {};
+const StyledHeader = styled.header`
+  background-color: var(--color-grey-0);
+  padding: 1.2rem 4.8rem;
+  border-bottom: 1px solid var(--color-grey-100);
+`;
 
-const Header = (props: Props) => {
-  return (
-    <div>
-      <h2>Header</h2>
-    </div>
-  );
-};
+function Header() {
+  return <StyledHeader>HEADER</StyledHeader>;
+}
 
 export default Header;
