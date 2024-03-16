@@ -4,20 +4,30 @@ import Header from "./Header";
 
 import styled from "styled-components";
 
-const AppLayout = styled.div`
+const StyledAppLayout = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: 26rem 1fr;
   grid-template-rows: auto 1fr;
 `;
 
+const Main = styled.div`
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`;
+
 function Layout() {
   return (
-    <AppLayout>
+    <StyledAppLayout>
       <Header />
       <Sidebar />
-      <Outlet />
-    </AppLayout>
+      <Main>
+        <Outlet />
+      </Main>
+    </StyledAppLayout>
   );
 }
 
