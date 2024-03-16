@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
 import { getRooms } from "../../services/apiRooms";
-import { useRooms } from "./useRooms";
+import { useRooms } from "./useRooms.js";
 import RoomRow from "./RoomRow";
+import Spinner from "../../ui/Spinner";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -31,6 +32,8 @@ const TableHeader = styled.header`
 const RoomTable = () => {
   const { isLoading, rooms } = useRooms();
 
+  if (isLoading) return <Spinner />;
+
   return (
     <Table role="table">
       <TableHeader role="row">
@@ -41,9 +44,9 @@ const RoomTable = () => {
         <div>Discount</div>
         <div></div>
       </TableHeader>
-      {rooms.map((room) => {
-        <RoomRow room={room} key={room.id} />;
-      })}
+      {rooms.map((room) => (
+        <RoomRow room={room} key={room.id} />
+      ))}
     </Table>
   );
 };

@@ -14,7 +14,6 @@ const Rooms = () => {
         <p>Filter / Sort</p>
       </Row>
 
-      <img src="https://dkhpnhdpniqygqzuhiga.supabase.co/storage/v1/object/public/cabin-images/cabin-002.jpg"></img>
       <Row>
         <RoomTable />
       </Row>

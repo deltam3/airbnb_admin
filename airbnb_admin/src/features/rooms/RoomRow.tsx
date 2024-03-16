@@ -46,9 +46,7 @@ function RoomRow({ room }) {
   return (
     <TableRow role="row">
       <Img src={image}></Img>
-      {/* <img src={image}></img> */}
       <Room>{name}</Room>
-      {/* <div>{name}</div> */}
       <div>Fits up to {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
       <Discount>{formatCurrency(discount)}</Discount>
