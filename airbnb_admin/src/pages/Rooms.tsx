@@ -1,10 +1,23 @@
-import React from "react";
+import { useState } from "react";
+
+import RoomTable from "../features/rooms/RoomTable";
+import Heading from "../ui/Heading";
+import Row from "../ui/Row";
 
 const Rooms = () => {
+  const [showForm, setShowForm] = useState(false);
+
   return (
-    <div>
-      <h2>Rooms</h2>
-    </div>
+    <>
+      <Row type="horizontal">
+        <Heading as="h1">All cabins</Heading>
+        <p>Filter / Sort</p>
+      </Row>
+
+      <Row>
+        <RoomTable />
+      </Row>
+    </>
   );
 };
 
