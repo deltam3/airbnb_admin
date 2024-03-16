@@ -10,7 +10,7 @@ const Rooms = () => {
   return (
     <>
       <Row type="horizontal">
-        <Heading as="h1">All cabins</Heading>
+        <Heading as="h1">All Rooms</Heading>
         <p>Filter / Sort</p>
       </Row>
 
