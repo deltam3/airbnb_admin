@@ -1,11 +1,11 @@
 import React from "react";
 
-const Cabins = () => {
+const Rooms = () => {
   return (
     <div>
-      <h2>Cabins</h2>
+      <h2>Rooms</h2>
     </div>
   );
 };
 
-export default Cabins;
+export default Rooms;
