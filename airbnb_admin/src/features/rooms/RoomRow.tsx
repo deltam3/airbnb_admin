@@ -1,6 +1,10 @@
 import styled from "styled-components";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 import { formatCurrency } from "../../utils/helpers.js";
-import { useMutation } from "@tanstack/react-query";
+import { deleteRoom } from "../../services/apiRooms.js";
+
+import { toast } from "react-hot-toast";
 
 const TableRow = styled.div`
   display: grid;
@@ -41,11 +45,31 @@ const Discount = styled.div`
   color: var(--color-green-700);
 `;
 
-function RoomRow({ room }) {
-  const { name, regularPrice, image, maxCapacity, discount } = room;
+function RoomRow({ room, error, children }) {
+  const { id: roomId, name, regularPrice, image, maxCapacity, discount } = room;
 
-  const { isLoading, mutate } = useMutation({
-    mutationFn: (id) => deleteCabin(id),
+  const queryClient = useQueryClient();
+
+  // const { isLoading: isDeleting, mutate } = useMutation({
+  //   mutationFn: (id) => deleteRoom(id),
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries({
+  //       queryKey: ["rooms"],
+  //     });
+  //   },
+  //   onError: (err) => alert(err.message),
+  // });
+
+  const { isLoading: isDeleting, mutate } = useMutation({
+    mutationFn: deleteRoom,
+    onSuccess: () => {
+      toast.success("Room successfully deleted");
+
+      queryClient.invalidateQueries({
+        queryKey: ["rooms"],
+      });
+    },
+    onError: (err) => toast.error(err.message),
   });
 
   return (
@@ -55,7 +79,9 @@ function RoomRow({ room }) {
       <div>Fits up to {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
       <Discount>{formatCurrency(discount)}</Discount>
-      <button>Delete</button>
+      <button onClick={() => mutate(roomId)} disabled={isDeleting}>
+        Delete
+      </button>
     </TableRow>
   );
 }

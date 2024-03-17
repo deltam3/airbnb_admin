@@ -3,6 +3,8 @@ import { useState } from "react";
 import RoomTable from "../features/rooms/RoomTable";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
+import Button from "../ui/Button";
+import CreateRoomForm from "../features/rooms/CreateRoomForm";
 
 const Rooms = () => {
   const [showForm, setShowForm] = useState(false);
@@ -16,6 +18,11 @@ const Rooms = () => {
 
       <Row>
         <RoomTable />
+
+        <Button onClick={() => setShowForm((show) => !show)}>
+          Add new cabin
+        </Button>
+        {showForm && <CreateRoomForm />}
       </Row>
     </>
   );
