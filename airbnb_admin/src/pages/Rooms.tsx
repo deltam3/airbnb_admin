@@ -12,7 +12,7 @@ const Rooms = () => {
   return (
     <>
       <Row type="horizontal">
-        <Heading as="h1">All Rooms</Heading>
+        <Heading as="h1">모든 방</Heading>
         <p>Filter / Sort</p>
       </Row>
 
@@ -20,7 +20,7 @@ const Rooms = () => {
         <RoomTable />
 
         <Button onClick={() => setShowForm((show) => !show)}>
-          Add new cabin
+          방 추가하기
         </Button>
         {showForm && <CreateRoomForm />}
       </Row>

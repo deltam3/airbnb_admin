@@ -22,7 +22,7 @@ export async function createEditRoom(newRoom, id) {
     ? newRoom.image
     : `${supabaseUrl}/storage/v1/object/public/room-images/${imageName}`;
 
-  // 1. Create/edit cabin
+  // 1. Create/edit room
   let query = supabase.from("rooms");
 
   // A) CREATE
@@ -50,7 +50,7 @@ export async function createEditRoom(newRoom, id) {
     await supabase.from("rooms").delete().eq("id", data.id);
     console.error(storageError);
     throw new Error(
-      "Room image could not be uploaded and the cabin was not created"
+      "Room image could not be uploaded and the room was not created"
     );
   }
 
