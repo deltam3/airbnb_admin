@@ -1,41 +1,74 @@
+// import { useForm } from "react-hook-form";
+// import { useMutation, useQueryClient } from "@tanstack/react-query";
+// import { toast } from "react-hot-toast";
+// import { useCreateCabin } from "./useCreateCabin";
+// import { useEditCabin } from "./useEditCabin";
+
+// import Form from "../../ui/Form";
+// import FormRow from "../../ui/FormRow";
+// import Input from "../../ui/Input";
+
 import { useForm } from "react-hook-form";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { toast } from "react-hot-toast";
 
-import Form from "../../ui/Form";
-import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import Form from "../../ui/Form";
+import Button from "../../ui/Button";
+import FileInput from "../../ui/FileInput";
+import Textarea from "../../ui/Textarea";
+import FormRow from "../../ui/FormRow";
 
-function CreateRoomForm() {
-  const { register, handleSubmit, reset, getValues, formState } = useForm();
+import { useCreateRoom } from "./useCreateRoom";
+import { useEditRoom } from "./useEditRoom";
+
+function CreateRoomForm({ roomToEdit = {} }) {
+  const { isCreating, createRoom } = useCreateRoom();
+  const { isEditing, editRoom } = useEditRoom();
+  const isWorking = isCreating || isEditing;
+
+  const { id: editId, ...editValues } = roomToEdit;
+  const isEditSession = Boolean(editId);
+
+  const { register, handleSubmit, reset, getValues, formState } = useForm({
+    defaultValues: isEditSession ? editValues : {},
+  });
   const { errors } = formState;
 
   function onSubmit(data) {
-    mutate(data);
+    const image = typeof data.image === "string" ? data.image : data.image[0];
+
+    if (isEditSession)
+      editRoom(
+        { newRoomData: { ...data, image }, id: editId },
+        {
+          onSuccess: (data) => {
+            reset();
+          },
+        }
+      );
+    else
+      createRoom(
+        { ...data, image: image },
+        {
+          onSuccess: (data) => {
+            reset();
+          },
+        }
+      );
   }
 
-  const queryClient = useQueryClient();
-
-  const { mutate, isLoading: isCreating } = useMutation({
-    mutationFn: createRoom,
-    onSuccess: () => {
-      toast.success("New Room successfully created");
-      queryClient.invalidateQueries({
-        queryKey: ["rooms"],
-      });
-      reset();
-    },
-    onError: (err) => toast.error(err.message),
-  });
-
+  function onError(errors) {
+    console.log(errors);
+  }
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
       <FormRow label="방 이름" errors={errors?.name?.message}>
         <Input
           type="text"
           id="name"
-          disabled={isCreating}
-          {...register("name")}
+          disabled={isWorking}
+          {...register("name", {
+            required: "This field is required",
+          })}
         />
       </FormRow>
 
@@ -43,7 +76,7 @@ function CreateRoomForm() {
         <Input
           type="number"
           id="maxCapacity"
-          disabled={isCreating}
+          disabled={isWorking}
           {...register("maxCapacity", {
             required: "입력하셔야 합니다",
             min: {
@@ -58,7 +91,7 @@ function CreateRoomForm() {
         <Input
           type="number"
           id="regularPrice"
-          disabled={isCreating}
+          disabled={isWorking}
           {...register("regularPrice", {
             required: "입력하셔야 합니다",
             min: {
@@ -73,7 +106,7 @@ function CreateRoomForm() {
         <Input
           type="number"
           id="discount"
-          disabled={isCreating}
+          disabled={isWorking}
           defaultValue={0}
           {...register("discount", {
             required: "입력하셔야 합니다",
@@ -86,7 +119,7 @@ function CreateRoomForm() {
 
       <FormRow
         label="설명"
-        disabled={isCreating}
+        disabled={isWorking}
         errors={errors?.description?.message}
       >
         <Textarea
@@ -94,19 +127,29 @@ function CreateRoomForm() {
           id="description"
           defaultValue=""
           disabled={isCreating}
-          {...register("description")}
+          {...register("description", {
+            required: "필수 입력입니다.",
+          })}
         />
       </FormRow>
 
       <FormRow label="방 사진">
-        <FileInput id="image" accept="image/*" {...register("image")} />
+        <FileInput
+          id="image"
+          accept="image/*"
+          {...register("image", {
+            required: isEditSession ? false : "필수 입력입니다",
+          })}
+        />
       </FormRow>
 
       <FormRow>
         <Button variation="secondary" type="reset">
           취소
         </Button>
-        <Button disabled={isCreating}>방 추가하기</Button>
+        <Button disabled={isWorking}>
+          {isEditSession ? "방 편집" : "방 추가"}
+        </Button>
       </FormRow>
     </Form>
   );

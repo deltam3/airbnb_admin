@@ -43,9 +43,9 @@ export async function createEditRoom(newRoom, id) {
 
   const { error: storageError } = await supabase.storage
     .from("room-images")
-    .upload(imageName, room.image);
+    .upload(imageName, newRoom.image);
 
-  // 3. Delete the room IF there was an error uplaoding image
+  // 3. Delete the cabin IF there was an error uplaoding image
   if (storageError) {
     await supabase.from("rooms").delete().eq("id", data.id);
     console.error(storageError);
@@ -56,7 +56,6 @@ export async function createEditRoom(newRoom, id) {
 
   return data;
 }
-
 export async function deleteRoom(id) {
   const { data, error } = await supabase.from("rooms").delete().eq("id", id);
 
