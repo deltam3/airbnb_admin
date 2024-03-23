@@ -20,7 +20,7 @@ import FormRow from "../../ui/FormRow";
 import { useCreateRoom } from "./useCreateRoom";
 import { useEditRoom } from "./useEditRoom";
 
-function CreateRoomForm({ roomToEdit = {} }) {
+function CreateRoomForm({ roomToEdit = {}, onCloseModal }) {
   const { isCreating, createRoom } = useCreateRoom();
   const { isEditing, editRoom } = useEditRoom();
   const isWorking = isCreating || isEditing;
@@ -144,7 +144,11 @@ function CreateRoomForm({ roomToEdit = {} }) {
       </FormRow>
 
       <FormRow>
-        <Button variation="secondary" type="reset">
+        <Button
+          variation="secondary"
+          type="reset"
+          onClick={() => onCloseModal?.()}
+        >
           취소
         </Button>
         <Button disabled={isWorking}>
