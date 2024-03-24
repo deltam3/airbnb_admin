@@ -8,7 +8,7 @@ import CreateRoomForm from "../features/rooms/CreateRoomForm";
 import AddRoom from "../features/rooms/AddRoom";
 
 const Rooms = () => {
-  const [showForm, setShowForm] = useState(false);
+  // const [showForm, setShowForm] = useState(false);
 
   return (
     <>
