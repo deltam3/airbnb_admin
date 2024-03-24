@@ -7,7 +7,7 @@ function AddRoom() {
     <div>
       <Modal>
         <Modal.Open opens="cabin-form">
-          <Button>Add new cabin</Button>
+          <Button>새로운 방 추가하기</Button>
         </Modal.Open>
         <Modal.Window name="cabin-form">
           <CreateRoomForm />

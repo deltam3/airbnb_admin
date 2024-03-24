@@ -6,20 +6,43 @@ import Spinner from "../../ui/Spinner";
 import Menus from "../../ui/Menus.js";
 import Table from "../../ui/Table.js";
 
+import { useSearchParams } from "react-router-dom";
+import Empty from "../../ui/Empty";
+
 const RoomTable = () => {
   const { isLoading, rooms } = useRooms();
+  const [searchParams] = useSearchParams();
 
   if (isLoading) return <Spinner />;
+  if (!rooms.length) return <Empty resourceName="cabins" />;
+
+  // 1) FILTER
+  const filterValue = searchParams.get("discount") || "all";
+
+  let filteredRooms;
+  if (filterValue === "all") filteredRooms = rooms;
+  if (filterValue === "no-discount")
+    filteredRooms = rooms.filter((room) => room.discount === 0);
+  if (filterValue === "with-discount")
+    filteredRoom = rooms.filter((room) => room.discount > 0);
+
+  // 2) SORT
+  const sortBy = searchParams.get("sortBy") || "startDate-asc";
+  const [field, direction] = sortBy.split("-");
+  const modifier = direction === "asc" ? 1 : -1;
+  const sortedRooms = filteredRooms.sort(
+    (a, b) => (a[field] - b[field]) * modifier
+  );
 
   return (
     <Menus>
       <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
         <Table.Header>
           <div></div>
-          <div>Room</div>
-          <div>Capacity</div>
-          <div>Price</div>
-          <div>Discount</div>
+          <div>이름</div>
+          <div>최대 인원</div>
+          <div>가격</div>
+          <div>할인 값</div>
           <div></div>
         </Table.Header>
 
