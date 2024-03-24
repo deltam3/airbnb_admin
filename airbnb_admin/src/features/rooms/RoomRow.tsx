@@ -79,7 +79,7 @@ function RoomRow({ room }) {
     <Table.Row>
       <Img src={image} />
       <Room>{name}</Room>
-      <div>Fits up to {maxCapacity} guests</div>
+      <div>최대 인원 {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
       {discount ? (
         <Discount>{formatCurrency(discount)}</Discount>
