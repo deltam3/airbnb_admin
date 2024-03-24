@@ -80,7 +80,7 @@ async function createBookings() {
       extrasPrice,
       totalPrice,
       guestId: allGuestIds.at(booking.guestId - 1),
-      romId: allRoomIds.at(booking.roomId - 1),
+      roomId: allRoomIds.at(booking.roomId - 1),
       status,
     };
   });
@@ -128,14 +128,14 @@ function Uploader() {
         gap: "8px",
       }}
     >
-      <h3>SAMPLE DATA</h3>
+      <h3>더미 데이터</h3>
 
       <Button onClick={uploadAll} disabled={isLoading}>
-        Upload ALL
+        모든 더미 데이터 올리기
       </Button>
 
       <Button onClick={uploadBookings} disabled={isLoading}>
-        Upload bookings ONLY
+        예약 더미 데이터만 올리기
       </Button>
     </div>
   );

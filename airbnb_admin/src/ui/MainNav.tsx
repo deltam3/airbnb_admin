@@ -59,31 +59,31 @@ function MainNav() {
         <li>
           <StyledNavLink to="/dashboard">
             <HiOutlineHome />
-            <span>Home</span>
+            <span>홈</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/bookings">
             <HiOutlineCalendarDays />
-            <span>Bookings</span>
+            <span>예약</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/rooms">
             <HiOutlineHomeModern />
-            <span>Rooms</span>
+            <span>방</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/users">
             <HiOutlineUsers />
-            <span>Users</span>
+            <span>사용자 관리</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/settings">
             <HiOutlineCog6Tooth />
-            <span>Settings</span>
+            <span>설정</span>
           </StyledNavLink>
         </li>
       </NavList>
