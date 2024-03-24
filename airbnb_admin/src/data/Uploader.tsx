@@ -5,7 +5,7 @@ import Button from "../ui/Button";
 import { subtractDates } from "../utils/helpers";
 
 import { bookings } from "./data-bookings";
-import { room } from "./data-rooms";
+import { rooms } from "./data-rooms";
 import { guests } from "./data-guests";
 
 async function deleteGuests() {
@@ -96,12 +96,11 @@ function Uploader() {
 
   async function uploadAll() {
     setIsLoading(true);
-    // Bookings need to be deleted FIRST
+
     await deleteBookings();
     await deleteGuests();
     await deleteRooms();
 
-    // Bookings need to be created LAST
     await createGuests();
     await createRooms();
     await createBookings();

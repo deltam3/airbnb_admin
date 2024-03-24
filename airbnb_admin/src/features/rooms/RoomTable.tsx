@@ -24,7 +24,7 @@ const RoomTable = () => {
   if (filterValue === "no-discount")
     filteredRooms = rooms.filter((room) => room.discount === 0);
   if (filterValue === "with-discount")
-    filteredRoom = rooms.filter((room) => room.discount > 0);
+    filteredRooms = rooms.filter((room) => room.discount > 0);
 
   // 2) SORT
   const sortBy = searchParams.get("sortBy") || "startDate-asc";
@@ -47,7 +47,7 @@ const RoomTable = () => {
         </Table.Header>
 
         <Table.Body
-          data={rooms}
+          data={sortedRooms}
           render={(room) => <RoomRow room={room} key={room.id} />}
         />
       </Table>
