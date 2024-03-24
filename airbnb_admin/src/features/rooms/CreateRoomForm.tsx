@@ -60,7 +60,10 @@ function CreateRoomForm({ roomToEdit = {}, onCloseModal }) {
     console.log(errors);
   }
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form
+      onSubmit={handleSubmit(onSubmit, onError)}
+      type={onCloseModal ? "modal" : "regular"}
+    >
       <FormRow label="방 이름" errors={errors?.name?.message}>
         <Input
           type="text"
