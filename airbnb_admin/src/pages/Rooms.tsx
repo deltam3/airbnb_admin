@@ -9,8 +9,6 @@ import AddRoom from "../features/rooms/AddRoom";
 import RoomTableOperations from "../features/rooms/RoomTableOperations";
 
 const Rooms = () => {
-  // const [showForm, setShowForm] = useState(false);
-
   return (
     <>
       <Row type="horizontal">
@@ -20,11 +18,6 @@ const Rooms = () => {
 
       <Row>
         <RoomTable />
-
-        {/* <Button onClick={() => setShowForm((show) => !show)}>
-          방 추가하기
-        </Button>
-        {showForm && <CreateRoomForm />} */}
         <AddRoom />
       </Row>
     </>

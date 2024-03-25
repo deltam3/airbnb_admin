@@ -28,7 +28,7 @@ function UpdateSettingsForm() {
 
   return (
     <Form>
-      <FormRow label="Minimum nights/booking">
+      <FormRow label="최소한 예약해야 하는 날">
         <Input
           type="number"
           id="min-nights"
@@ -38,7 +38,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Maximum nights/booking">
+      <FormRow label="최대한 예약할 수 있는 날">
         <Input
           type="number"
           id="max-nights"
@@ -48,7 +48,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Maximum guests/booking">
+      <FormRow label="최대 손님/예약 ">
         <Input
           type="number"
           id="max-guests"
@@ -58,7 +58,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Breakfast price">
+      <FormRow label="아침 식사 가격">
         <Input
           type="number"
           id="breakfast-price"

@@ -40,6 +40,7 @@ function Filter({ filterField, options }) {
   const currentFilter = searchParams.get(filterField) || options.at(0).value;
 
   function handleClick(value) {
+    // url에 넣을 값
     searchParams.set(filterField, value);
     if (searchParams.get("page")) searchParams.set("page", 1);
 

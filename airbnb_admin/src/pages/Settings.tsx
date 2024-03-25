@@ -5,7 +5,7 @@ import Row from "../ui/Row";
 function Settings() {
   return (
     <Row>
-      <Heading as="h1">Update hotel settings</Heading>
+      <Heading as="h1">예약관련 설정 업데이트</Heading>
       <UpdateSettingsForm />
     </Row>
   );
