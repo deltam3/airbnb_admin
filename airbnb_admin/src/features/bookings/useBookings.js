@@ -3,7 +3,7 @@ import { getBookings } from "../../services/apiBookings";
 import { useSearchParams } from "react-router-dom";
 import { PAGE_SIZE } from "../../utils/constants";
 
-export function useBookings() {
+export function useBookings({ filter, sortBy, page }) {
   const queryClient = useQueryClient();
   const [searchParams] = useSearchParams();
 

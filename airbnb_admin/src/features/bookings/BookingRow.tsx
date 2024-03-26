@@ -104,7 +104,7 @@ function BookingRow({
               icon={<HiEye />}
               onClick={() => navigate(`/bookings/${bookingId}`)}
             >
-              See details
+              자세히보기
             </Menus.Button>
 
             {status === "unconfirmed" && (
@@ -112,7 +112,7 @@ function BookingRow({
                 icon={<HiArrowDownOnSquare />}
                 onClick={() => navigate(`/checkin/${bookingId}`)}
               >
-                Check in
+                체크인하기
               </Menus.Button>
             )}
 
@@ -122,12 +122,12 @@ function BookingRow({
                 onClick={() => checkout(bookingId)}
                 disabled={isCheckingOut}
               >
-                Check out
+                체크아웃하기
               </Menus.Button>
             )}
 
             <Modal.Open opens="delete">
-              <Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
+              <Menus.Button icon={<HiTrash />}>예약 삭제하기</Menus.Button>
             </Modal.Open>
           </Menus.List>
         </Menus.Menu>
