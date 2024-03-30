@@ -1,13 +1,8 @@
 import React from "react";
+import BookingDetail from "../features/bookings/BookingDetail";
 
-type Props = {};
-
-const Booking = (props: Props) => {
-  return (
-    <div>
-      <h1>Booking</h1>
-    </div>
-  );
+const Booking = () => {
+  return <BookingDetail />;
 };
 
 export default Booking;

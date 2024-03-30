@@ -1,11 +1,13 @@
-import React from "react";
+import SignupForm from "../features/authentication/SignupForm";
+import Heading from "../ui/Heading";
 
-const Users = () => {
+function NewUsers() {
   return (
-    <div>
-      <h2>Users</h2>
-    </div>
+    <>
+      <Heading as="h1">새로운 사용자 만들기</Heading>
+      <SignupForm />
+    </>
   );
-};
+}
 
-export default Users;
+export default NewUsers;

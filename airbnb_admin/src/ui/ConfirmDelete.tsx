@@ -23,7 +23,7 @@ const StyledConfirmDelete = styled.div`
 function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
   return (
     <StyledConfirmDelete>
-      <Heading as="h3">Delete {resourceName}</Heading>
+      <Heading as="h3">{resourceName} 삭제</Heading>
       <p>
         {resourceName}을 영구적으로 삭제하시겠습니까? 이 행동은 비가역적입니다.
       </p>
