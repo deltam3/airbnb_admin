@@ -92,7 +92,11 @@ function RoomRow({ room }) {
             <Menus.Toggle id={roomId} />
 
             <Menus.List id={roomId}>
-              <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
+              <Menus.Button
+                icon={<HiSquare2Stack />}
+                onClick={handleDuplicate}
+                disabled={isCreating}
+              >
                 복사하기
               </Menus.Button>
 
