@@ -36,7 +36,7 @@ function DarkModeProvider({ children }) {
 function useDarkMode() {
   const context = useContext(DarkModeContext);
   if (context === undefined)
-    throw new Error("DarkModeContext was used outside of DarkModeProvider");
+    throw new Error("다크모드 콘텍스트가 프로바이더 밖에서 사용되었습니다.");
   return context;
 }
 

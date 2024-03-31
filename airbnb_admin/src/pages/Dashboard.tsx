@@ -1,7 +1,19 @@
-import React from "react";
+import DashboardLayout from "../features/dashboard/DashboardLayout";
+import DashboardFilter from "../features/dashboard/DashboardFilter";
+import Heading from "../ui/Heading";
+import Row from "../ui/Row";
 
-const Dashboard = () => {
-  return <h2>Dashboard</h2>;
-};
+function Dashboard() {
+  return (
+    <>
+      <Row type="horizontal">
+        <Heading as="h1">대시보드</Heading>
+        <DashboardFilter />
+      </Row>
+
+      <DashboardLayout />
+    </>
+  );
+}
 
 export default Dashboard;

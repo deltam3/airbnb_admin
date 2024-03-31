@@ -16,12 +16,12 @@ export function useCheckin() {
       }),
 
     onSuccess: (data) => {
-      toast.success(`Booking #${data.id} successfully checked in`);
+      toast.success(`예약번호 #${data.id}가 성공적으로 체크인되었습니다.`);
       queryClient.invalidateQueries({ active: true });
       navigate("/");
     },
 
-    onError: () => toast.error("There was an error while checking in"),
+    onError: () => toast.error("체크인 처리 중 에러가 발생했습니다."),
   });
 
   return { checkin, isCheckingIn };
