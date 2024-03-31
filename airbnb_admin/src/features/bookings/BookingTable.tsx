@@ -18,11 +18,11 @@ function BookingTable() {
     <Menus>
       <Table columns="0.6fr 2fr 2.4fr 1.4fr 1fr 3.2rem">
         <Table.Header>
-          <div>Room</div>
-          <div>Guest</div>
-          <div>Dates</div>
-          <div>Status</div>
-          <div>Amount</div>
+          <div>방 이름</div>
+          <div>손님 성함</div>
+          <div>날짜</div>
+          <div>상태</div>
+          <div>금액</div>
           <div></div>
         </Table.Header>
 

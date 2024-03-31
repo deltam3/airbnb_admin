@@ -79,7 +79,7 @@ function RoomRow({ room }) {
     <Table.Row>
       <Img src={image} />
       <Room>{name}</Room>
-      <div>최대 인원 {maxCapacity} guests</div>
+      <div>최대 인원 {maxCapacity}명</div>
       <Price>{formatCurrency(regularPrice)}</Price>
       {discount ? (
         <Discount>{formatCurrency(discount)}</Discount>
@@ -93,15 +93,15 @@ function RoomRow({ room }) {
 
             <Menus.List id={roomId}>
               <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
-                Duplicate
+                복사하기
               </Menus.Button>
 
               <Modal.Open opens="edit">
-                <Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
+                <Menus.Button icon={<HiPencil />}>수정하기</Menus.Button>
               </Modal.Open>
 
               <Modal.Open opens="delete">
-                <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
+                <Menus.Button icon={<HiTrash />}>삭제하기</Menus.Button>
               </Modal.Open>
             </Menus.List>
 

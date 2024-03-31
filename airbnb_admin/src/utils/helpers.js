@@ -6,10 +6,10 @@ export const subtractDates = (dateStr1, dateStr2) =>
 
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
-    addSuffix: true,
+    addSuffix: false,
   })
-    .replace("about ", "")
-    .replace("in", "In");
+    .replace("about ", "약 ")
+    .replace("in", "안에");
 
 export const getToday = function (options = {}) {
   const today = new Date();
