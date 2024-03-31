@@ -50,7 +50,7 @@ const Button = styled.button`
   }
 `;
 
-const ModalContext = createContext();
+const ModalContext = createContext(null);
 
 function Modal({ children }) {
   const [openName, setOpenName] = useState("");

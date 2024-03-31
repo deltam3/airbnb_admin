@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { useRooms } from "./useRooms.js";
 import RoomRow from "./RoomRow";
 import Spinner from "../../ui/Spinner";
-import Menus from "../../ui/Menus.js";
-import Table from "../../ui/Table.js";
+import Menus from "../../ui/Menus";
+import Table from "../../ui/Table";
 
 import { useSearchParams } from "react-router-dom";
 import Empty from "../../ui/Empty";
