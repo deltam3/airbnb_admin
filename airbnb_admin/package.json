@@ -2,6 +2,7 @@
   "name": "airbnb_admin",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://deltam3.github.io/react-gh-pages",
   "type": "module",
   "scripts": {
     "dev": "vite",

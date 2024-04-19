@@ -19,10 +19,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false,
-    "rules": {
-      "@typescript-eslint/ban-ts-ignore": "off"
-    }
+    // "noImplicitAny": false,
+    "noImplicitAny": true
+    // "rules": {
+    //   "@typescript-eslint/ban-ts-ignore": "off"
+    // }
   },
 
   "include": ["src"],

@@ -7,22 +7,35 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+//@ts-expect-error
 import GlobalStyles from "./styles/GlobalStyles";
-
+//@ts-expect-error
 import Layout from "./ui/Layout";
+//@ts-expect-error
 import Dashboard from "./pages/Dashboard";
+//@ts-expect-error
 import PageNotFound from "./pages/PageNotFound";
+//@ts-expect-error
 import Login from "./pages/Login";
+//@ts-expect-error
 import Bookings from "./pages/Bookings";
+//@ts-expect-error
 import Rooms from "./pages/Rooms";
+//@ts-expect-error
 import Users from "./pages/Users";
+//@ts-expect-error
 import Settings from "./pages/Settings";
+//@ts-expect-error
 import Account from "./pages/Account";
 
 import { Toaster } from "react-hot-toast";
+//@ts-expect-error
 import Booking from "./pages/Booking";
+//@ts-expect-error
 import Checkin from "./pages/CheckIn";
+//@ts-expect-error
 import ProtectedRoute from "./ui/ProtectedRoute";
+//@ts-expect-error
 import { DarkModeProvider } from "./context/DarkModeContext";
 
 const queryClient = new QueryClient({
