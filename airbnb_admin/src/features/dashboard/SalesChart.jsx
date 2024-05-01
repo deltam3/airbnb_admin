@@ -70,7 +70,7 @@ function SalesChart({ bookings, numDays }) {
             tickLine={{ stroke: colors.text }}
           />
           <YAxis
-            unit="$"
+            unit="₩"
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
           />
@@ -82,8 +82,8 @@ function SalesChart({ bookings, numDays }) {
             stroke={colors.totalSales.stroke}
             fill={colors.totalSales.fill}
             strokeWidth={2}
-            name="Total sales"
-            unit="$"
+            name="총 매출"
+            unit="₩"
           />
           <Area
             dataKey="extrasSales"
@@ -91,8 +91,8 @@ function SalesChart({ bookings, numDays }) {
             stroke={colors.extrasSales.stroke}
             fill={colors.extrasSales.fill}
             strokeWidth={2}
-            name="Extras sales"
-            unit="$"
+            name="추가 매출"
+            unit="₩"
           />
         </AreaChart>
       </ResponsiveContainer>

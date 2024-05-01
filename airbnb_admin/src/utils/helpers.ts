@@ -9,7 +9,10 @@ export const formatDistanceFromNow = (dateStr) =>
     addSuffix: false,
   })
     .replace("about ", "약 ")
-    .replace("in", "안에");
+    .replace("in", "안에")
+    .replace("days", "일")
+    .replace("day", "일")
+    .replace("hours", "시간");
 
 export const getToday = function (options = {}) {
   const today = new Date();
@@ -19,7 +22,14 @@ export const getToday = function (options = {}) {
   return today.toISOString();
 };
 
-export const formatCurrency = (value) =>
-  new Intl.NumberFormat("en", { style: "currency", currency: "USD" }).format(
-    value
-  );
+// export const formatCurrency = (value) =>
+//   new Intl.NumberFormat("en", { style: "currency", currency: "USD" }).format(
+//     value
+//   );
+
+export const formatCurrency = (value: number) => {
+  return new Intl.NumberFormat("ko-KR", {
+    style: "currency",
+    currency: "KRW",
+  }).format(value);
+};
