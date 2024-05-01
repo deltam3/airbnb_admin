@@ -10,7 +10,7 @@ import {
 import DataItem from "../../ui/DataItem";
 import { Flag } from "../../ui/Flag";
 
-import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers.js";
+import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers.ts";
 
 const StyledBookingDataBox = styled.section`
   background-color: var(--color-grey-0);
