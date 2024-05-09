@@ -71,6 +71,7 @@ function SalesChart({ bookings, numDays }) {
           />
           <YAxis
             unit="₩"
+            hide
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
           />
